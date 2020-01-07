@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightgrey;
 }
 
 code {
@@ -12,9 +13,15 @@ code {
     monospace;
 }
 
+.mainContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .champCard {
   border-style: solid;
-  width: 300px;
+  width: 200px;
   margin: 10px;
   border-radius: 7px;
   padding-right: 7px;
@@ -33,10 +40,27 @@ code {
 }
 
 .cardHeader {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 2px;
 }
 
 .cardFooter {
+  font-size: 0.8rem;
   padding: 1px;
+}
+
+.infoWrapper {
+  padding: 10px;
+  border-style: solid;
+  background-color: lightcyan;
+}
+
+.champImage {
+  height: 100px;
+  width: auto;
+}
+
+.masteryImage {
+  height: 60px;
+  width: auto;
 }

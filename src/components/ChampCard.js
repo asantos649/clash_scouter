@@ -27,11 +27,11 @@ function ChampCard(props) {
         <div className = 'champCard' style={cardColor()}>
             <div className = 'cardHeader'>{props.champ.champion.name}</div>
             <div className = 'cardContent'>
-                <img src={`http://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/${props.champ.champion.image.full}`}/>
+                <img className = 'champImage 'src={`http://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/${props.champ.champion.image.full}`}/>
                 <div className = 'cardInfo'>
                     {props.champ.championPoints}
                     <div className = 'cardImages'>
-                        <img src={`https://raw.githubusercontent.com/RiotAPI/Riot-Games-API-Developer-Assets/master/champion-mastery-icons/mastery-${props.champ.championLevel}.png`}/>
+                        <img className ='masteryImage' src={`https://raw.githubusercontent.com/RiotAPI/Riot-Games-API-Developer-Assets/master/champion-mastery-icons/mastery-${props.champ.championLevel}.png`}/>
                     </div>
                 </div>
             </div>
