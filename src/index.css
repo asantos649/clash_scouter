@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.champCard {
+  border-style: solid;
+  width: 300px;
+  margin: 10px;
+  border-radius: 7px;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cardInfo {
+  width: 100%;
+  padding: 10px;
+}
+
+.cardHeader {
+  font-size: 1.5rem;
+  padding: 2px;
+}
+
+.cardFooter {
+  padding: 1px;
+}
