@@ -8,7 +8,8 @@ class App extends React.Component {
 
   state ={
     user: 'x1234567890',
-    encryptedUserId: 'eGCN7CoutXsY9agxnM_h0c1pVFn00iNoH6VYZfC8Kv0lxUo'
+    encryptedUserId: 'eGCN7CoutXsY9agxnM_h0c1pVFn00iNoH6VYZfC8Kv0lxUo', 
+    encryptedAccountId: 'YcJLHnmnCZZtsH3O0E0YnGSoB-ZPhh3LZvVtudJ8509zLlU'
   }
 
   changeSummoner= (user) => {
@@ -26,7 +27,8 @@ class App extends React.Component {
         if (data.id){
                 this.setState({
                     user: user,
-                    encryptedUserId: data.id
+                    encryptedUserId: data.id,
+                    encryptedAccountId: data.accountId
                 })
         } else (
             alert('try again')
@@ -38,7 +40,10 @@ class App extends React.Component {
       <div className="App">
         <SummonerForm submitHandler={this.changeSummoner}/>
         <h3>{this.state.user}</h3>
-        <MainContainer encryptedUserId={this.state.encryptedUserId} user={this.state.user}/>
+        <MainContainer encryptedUserId={this.state.encryptedUserId} encryptedAccountId={this.state.encryptedAccountId} user={this.state.user}/>
+        <div className='legalFooter'>Clash Scouter isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
+or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
+trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</div>
       </div>
     );
 

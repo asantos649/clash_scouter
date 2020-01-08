@@ -23,6 +23,13 @@ function ChampCard(props) {
 
     }
 
+    // function to return styling object if the last played is over 1 month
+    function styleOverOneMonth (){
+        if (new Date().getTime() - props.champ.lastPlayTime > 2629746000){
+            return {'color': 'red'}
+        }
+    }
+
     return(
         <div className = 'champCard' style={cardColor()}>
             <div className = 'cardHeader'>{props.champ.champion.name}</div>
@@ -35,7 +42,7 @@ function ChampCard(props) {
                     </div>
                 </div>
             </div>
-            <div className = 'cardFooter'>Last played: {new Date(props.champ.lastPlayTime).toLocaleDateString("en-US")}</div>
+            <div className = 'cardFooter'style={styleOverOneMonth()}>Last played: {new Date(props.champ.lastPlayTime).toLocaleDateString("en-US")}</div>
         </div>
     )
 }

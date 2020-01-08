@@ -64,3 +64,8 @@ code {
   height: 60px;
   width: auto;
 }
+
+.legalFooter {
+  color: grey;
+  font-size: .5rem;
+}
