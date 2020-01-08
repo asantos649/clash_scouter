@@ -69,3 +69,23 @@ code {
   color: grey;
   font-size: .5rem;
 }
+
+.statsCard {
+  border-style: solid;
+  margin-bottom: 5px;
+  padding: 7px;
+  background-color: lightgrey;
+  border-radius: 7px;
+}
+
+.progressWrapper {
+  width: 70px;
+}
+
+.statsCardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  
+}

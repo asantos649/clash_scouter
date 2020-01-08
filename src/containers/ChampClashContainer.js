@@ -1,4 +1,5 @@
 import React from 'react'
+import ChampStatsCard from '../components/ChampStatsCard'
 
 class ChampClashContainer extends React.Component{
 
@@ -8,6 +9,12 @@ class ChampClashContainer extends React.Component{
 
     componentDidMount(){
         this.fetchClashData()
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(this.props.encryptedAccountId !== prevProps.encryptedAccountId){
+            this.fetchClashData()
+        }
     }
 
     fetchClashData = () => {
@@ -54,7 +61,7 @@ class ChampClashContainer extends React.Component{
 
         if(this.props.allChamps !== {}){
             return this.getSortedList().map(champ => {
-                return <p>{this.props.allChamps[champ.champion].name + " " + champ.count}</p>
+                return <ChampStatsCard champion={this.props.allChamps[champ.champion]} count={champ.count} max={this.state.clashList.length}/>
             })
         } else {
             return <div>Loading...</div>
