@@ -8,7 +8,6 @@ class ChampMasteryContainer extends React.Component{
 
     state={
         userChamps: [],
-        showMoreChamps: false,
         loading: true
     }
 
@@ -49,34 +48,27 @@ class ChampMasteryContainer extends React.Component{
 
     }
 
-    showMoreClick = () => {
-        console.log('clicked')
-        this.setState({
-            showMoreChamps: !this.state.showMoreChamps
-        })
-    }
+
 
     renderChamps = () => {
         console.log('in renderChamp', this.state.userChamps)
         let list = this.state.userChamps.map(champ => {
             return <ChampCard champ={champ} key={champ.championId}/>
         })
-        return this.state.showMoreChamps ? list.slice(0,25) : list.slice(0,10)
+        return this.props.showMoreChamps ? list.slice(0,25) : list.slice(0,10)
     }
 
     render(){
         return(
             this.state.loading ? 
             <Loader
-                type="BallTriangle"
+                type="Circles"
                 color="#00BFFF"
                 height={100}
                 width={100}
-                timeout={3000}
             />: 
             <div className='champMasteryContainer'>
                 {this.renderChamps()}
-                <button onClick={this.showMoreClick}>{this.state.showMoreChamps ? 'show less' : 'show more'}</button>
             </div>
         )
     }

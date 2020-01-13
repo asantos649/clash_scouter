@@ -50,9 +50,12 @@ code {
 }
 
 .infoWrapper {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   border-style: solid;
   background-color: lightcyan;
+  justify-content: space-between;
 }
 
 .champImage {
@@ -88,4 +91,24 @@ code {
   justify-content: space-around;
   align-items: center;
   
+}
+
+.showButton {
+  align-self: flex-end;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  background-color: lightcyan;
+  border-style: solid;
+  border-color: lightcyan;
+}
+
+.showButton:focus { 
+  outline: none;
+}
+
+.showButton:hover{
+  border-style: dashed;
+  border-color: lightgrey;
+  border-radius: 3px;
 }

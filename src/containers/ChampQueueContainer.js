@@ -66,9 +66,10 @@ class ChampQueueContainer extends React.Component{
     renderMostPlayed =() => {
 
         if(this.props.allChamps !== {}){
-            return this.getSortedList().map(champ => {
+            let list = this.getSortedList().map(champ => {
                 return <ChampStatsCard champion={this.props.allChamps[champ.champion]} count={champ.count} max={this.state.matchList.length}/>
             })
+            return this.props.showMoreChamps ? list.slice(0,25) : list.slice(0,10)
         } else {
             return <div>Loading...</div>
         }
@@ -86,7 +87,9 @@ class ChampQueueContainer extends React.Component{
                 height={100}
                 width={100}
             />
-            : this.renderMostPlayed()
+            : <div>
+                {this.renderMostPlayed()}
+            </div>
         )
     }
 

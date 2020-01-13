@@ -3,8 +3,11 @@ import React from 'react'
 function InfoWrapper (props){
     return(
         <div className='infoWrapper'>
-            <h4>{props.title}</h4>
-            {props.children}
+            <div>
+                <h4>{props.title}</h4>
+                {props.children}
+            </div>
+            <button className='showButton' onClick={props.showMoreClick}>{props.showMoreChamps ? '▲' : '▼'}</button>
         </div>
 
     )

@@ -9,6 +9,7 @@ class MainContainer extends React.Component {
 
     state = {
         allChamps: {},
+        showMoreChamps: false
     }
 
     fetchAllChamps = () => {
@@ -27,21 +28,28 @@ class MainContainer extends React.Component {
         })
     }
 
+    showMoreClick = () => {
+        console.log('clicked')
+        this.setState({
+            showMoreChamps: !this.state.showMoreChamps
+        })
+    }
+
     render(){
         console.log('trying to render')
         return(
             <div className='mainContainer'> 
-                <InfoWrapper title='Top Champion Mastery'>
-                    <ChampMasteryContainer allChamps={this.state.allChamps} encryptedUserId={this.props.encryptedUserId} fetchAllChamps={this.fetchAllChamps}/>
+                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Top Champion Mastery'>
+                    <ChampMasteryContainer showMoreChamps={this.state.showMoreChamps} allChamps={this.state.allChamps} encryptedUserId={this.props.encryptedUserId} fetchAllChamps={this.fetchAllChamps}/>
                 </InfoWrapper>
-                <InfoWrapper title='Clash History' >
-                    <ChampionQueueContainer queue='700' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Clash History' >
+                    <ChampionQueueContainer showMoreChamps={this.state.showMoreChamps} queue='700' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
                 </InfoWrapper>
-                <InfoWrapper title='Ranked History' >
-                    <ChampionQueueContainer queue='420' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Ranked History' >
+                    <ChampionQueueContainer showMoreChamps={this.state.showMoreChamps} queue='420' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
                 </InfoWrapper>
-                <InfoWrapper title='Normal History' >
-                    <ChampionQueueContainer queue='400' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Normal History' >
+                    <ChampionQueueContainer showMoreChamps={this.state.showMoreChamps}  queue='400' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
                 </InfoWrapper>
                 
             </div>
