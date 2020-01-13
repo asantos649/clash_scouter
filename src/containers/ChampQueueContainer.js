@@ -1,24 +1,24 @@
 import React from 'react'
 import ChampStatsCard from '../components/ChampStatsCard'
 
-class ChampClashContainer extends React.Component{
+class ChampQueueContainer extends React.Component{
 
     state ={
-        clashList:[]
+        matchList:[]
     }
 
     componentDidMount(){
-        this.fetchClashData()
+        this.fetchData()
     }
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.encryptedAccountId !== prevProps.encryptedAccountId){
-            this.fetchClashData()
+            this.fetchData()
         }
     }
 
-    fetchClashData = () => {
-        fetch(`https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${this.props.encryptedAccountId}?queue=700`,{
+    fetchData = () => {
+        fetch(`https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${this.props.encryptedAccountId}?queue=${this.props.queue}`,{
             headers:{
                 "Origin": "https://developer.riotgames.com",
                 "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -31,21 +31,20 @@ class ChampClashContainer extends React.Component{
         .then(data => {
             console.log(data)
             this.setState({
-                clashList: data.matches
+                matchList: data.matches
             })
         })
     }
 
     getSortedList = () =>{
         let champCount = {}
-        this.state.clashList.forEach((match) =>{
+        this.state.matchList.forEach((match) =>{
             if (champCount[match.champion]) {
                 champCount[match.champion] ++
             } else {
                 champCount[match.champion] = 1
             }
         })
-        console.log('clash', champCount)
 
         let champCountArray = []
         Object.keys(champCount).forEach(key => {
@@ -61,7 +60,7 @@ class ChampClashContainer extends React.Component{
 
         if(this.props.allChamps !== {}){
             return this.getSortedList().map(champ => {
-                return <ChampStatsCard champion={this.props.allChamps[champ.champion]} count={champ.count} max={this.state.clashList.length}/>
+                return <ChampStatsCard champion={this.props.allChamps[champ.champion]} count={champ.count} max={this.state.matchList.length}/>
             })
         } else {
             return <div>Loading...</div>
@@ -79,4 +78,4 @@ class ChampClashContainer extends React.Component{
 
 }
 
-export default ChampClashContainer
+export default ChampQueueContainer

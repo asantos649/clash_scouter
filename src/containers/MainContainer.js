@@ -3,7 +3,7 @@ import ChampCard from '../components/ChampCard'
 import SummonerForm from '../components/SummonerForm'
 import InfoWrapper from './InfoWrapper'
 import ChampMasteryContainer from './ChampMasteryContainer'
-import ChampionClashContainer from './ChampClashContainer'
+import ChampionQueueContainer from './ChampQueueContainer'
 
 class MainContainer extends React.Component {
 
@@ -35,9 +35,14 @@ class MainContainer extends React.Component {
                     <ChampMasteryContainer allChamps={this.state.allChamps} encryptedUserId={this.props.encryptedUserId} fetchAllChamps={this.fetchAllChamps}/>
                 </InfoWrapper>
                 <InfoWrapper title='Clash History' >
-                    <ChampionClashContainer allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                    <ChampionQueueContainer queue='700' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
                 </InfoWrapper>
-                <InfoWrapper title='future info'></InfoWrapper>
+                <InfoWrapper title='Ranked History' >
+                    <ChampionQueueContainer queue='420' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                </InfoWrapper>
+                <InfoWrapper title='Normal History' >
+                    <ChampionQueueContainer queue='400' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                </InfoWrapper>
                 
             </div>
         )
