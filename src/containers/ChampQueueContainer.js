@@ -1,10 +1,14 @@
 import React from 'react'
 import ChampStatsCard from '../components/ChampStatsCard'
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 
 class ChampQueueContainer extends React.Component{
 
     state ={
-        matchList:[]
+        matchList:[],
+        loading: true
     }
 
     componentDidMount(){
@@ -13,7 +17,10 @@ class ChampQueueContainer extends React.Component{
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.encryptedAccountId !== prevProps.encryptedAccountId){
+            this.setState({loading:true})
             this.fetchData()
+        } else if(this.state.matchList !== prevState.matchList){
+            this.setState({loading:false})
         }
     }
 
@@ -72,7 +79,14 @@ class ChampQueueContainer extends React.Component{
     render(){
        
         return (
-            this.renderMostPlayed()
+            this.state.loading ? 
+            <Loader
+                type="Circles"
+                color="#00BFFF"
+                height={100}
+                width={100}
+            />
+            : this.renderMostPlayed()
         )
     }
 

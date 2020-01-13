@@ -1,11 +1,15 @@
 import React from 'react'
 import ChampCard from '../components/ChampCard'
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 
 class ChampMasteryContainer extends React.Component{
 
     state={
         userChamps: [],
         showMoreChamps: false,
+        loading: true
     }
 
     componentDidMount(){
@@ -14,7 +18,10 @@ class ChampMasteryContainer extends React.Component{
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.encryptedUserId !== prevProps.encryptedUserId){
+            this.setState({loading:true})
             this.fetchChampsByMastery()
+        } else if(this.state.userChamps !== prevState.userChamps){
+            this.setState({loading:false})
         }
     }
 
@@ -59,6 +66,14 @@ class ChampMasteryContainer extends React.Component{
 
     render(){
         return(
+            this.state.loading ? 
+            <Loader
+                type="BallTriangle"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                timeout={3000}
+            />: 
             <div className='champMasteryContainer'>
                 {this.renderChamps()}
                 <button onClick={this.showMoreClick}>{this.state.showMoreChamps ? 'show less' : 'show more'}</button>
