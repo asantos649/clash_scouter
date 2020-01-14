@@ -9,7 +9,7 @@ class MainContainer extends React.Component {
 
     state = {
         allChamps: {},
-        showMoreChamps: false
+        
     }
 
     fetchAllChamps = () => {
@@ -28,28 +28,66 @@ class MainContainer extends React.Component {
         })
     }
 
-    showMoreClick = () => {
-        console.log('clicked')
-        this.setState({
-            showMoreChamps: !this.state.showMoreChamps
-        })
-    }
+   
 
     render(){
         console.log('trying to render')
         return(
             <div className='mainContainer'> 
-                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Top Champion Mastery'>
-                    <ChampMasteryContainer showMoreChamps={this.state.showMoreChamps} allChamps={this.state.allChamps} encryptedUserId={this.props.encryptedUserId} fetchAllChamps={this.fetchAllChamps}/>
+                <InfoWrapper 
+                    showMoreClick={this.props.showMoreClick}  
+                    showMoreChamps={this.props.showMoreChamps} 
+                    title='Top Champion Mastery'
+                    toolTipId='mastery'
+                    toolTip="Top champions by mastery.  Ten champions are shown by default. Expand to see more.">
+
+                    <ChampMasteryContainer 
+                        showMoreChamps={this.props.showMoreChamps} 
+                        allChamps={this.state.allChamps} 
+                        encryptedUserId={this.props.encryptedUserId} 
+                        fetchAllChamps={this.fetchAllChamps}
+                    />
                 </InfoWrapper>
-                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Clash History' >
-                    <ChampionQueueContainer showMoreChamps={this.state.showMoreChamps} queue='700' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+
+                <InfoWrapper 
+                    showMoreClick={this.props.showMoreClick}  
+                    showMoreChamps={this.props.showMoreChamps} 
+                    title='Clash History' 
+                    toolTipId='clash'
+                    toolTip="Top champions by games played in clash.  Ten champions are shown by default. Expand to see more.">
+                        
+                    <ChampionQueueContainer 
+                        showMoreChamps={this.props.showMoreChamps} 
+                        queue='700' allChamps={this.state.allChamps} 
+                        encryptedAccountId={this.props.encryptedAccountId}
+                    />
                 </InfoWrapper>
-                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Ranked History' >
-                    <ChampionQueueContainer showMoreChamps={this.state.showMoreChamps} queue='420' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+
+                <InfoWrapper 
+                    showMoreClick={this.props.showMoreClick}  
+                    showMoreChamps={this.props.showMoreChamps} 
+                    title='Ranked History' 
+                    toolTipId='ranked'
+                    toolTip="Top champions by games played in ranked solo queue (max 100 most recent games).  Ten champions are shown by default. Expand to see more.">
+
+                    <ChampionQueueContainer 
+                        showMoreChamps={this.props.showMoreChamps} 
+                        queue='420' allChamps={this.state.allChamps} 
+                        encryptedAccountId={this.props.encryptedAccountId}
+                    />
                 </InfoWrapper>
-                <InfoWrapper showMoreClick={this.showMoreClick}  showMoreChamps={this.state.showMoreChamps} title='Normal History' >
-                    <ChampionQueueContainer showMoreChamps={this.state.showMoreChamps}  queue='400' allChamps={this.state.allChamps} encryptedAccountId={this.props.encryptedAccountId}/>
+                <InfoWrapper 
+                    showMoreClick={this.props.showMoreClick}  
+                    showMoreChamps={this.props.showMoreChamps} 
+                    title='Normal History' 
+                    toolTipId='normal'
+                    toolTip="Top champions by games played in normal draft queue (max 100 most recent games).  Ten champions are shown by default. Expand to see more.">
+
+                    <ChampionQueueContainer 
+                        showMoreChamps={this.props.showMoreChamps}  
+                        queue='400' allChamps={this.state.allChamps} 
+                        encryptedAccountId={this.props.encryptedAccountId}
+                    />
                 </InfoWrapper>
                 
             </div>
