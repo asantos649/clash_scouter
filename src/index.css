@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightgrey;
+  background-color: whitesmoke;
 }
 
 code {
@@ -127,7 +127,52 @@ code {
 }
 
 .toolTip{
-  max-width: 300px;
+  max-width: 250px;
   min-width: 160px;
   /* max-height: 100px; */
+}
+
+.header {
+  height: 100px;
+  background-color: whitesmoke;
+  /* margin-bottom: 40px; */
+}
+
+.folder {
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+  border-top: solid;
+  border-width: 1px;
+}
+
+.tab {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  /* background-color: red; */
+  height: 16px;
+  width: 20%;
+  z-index: 1;
+  padding-top: 3px;
+  /* border-top: solid;
+  border-right: solid;
+  border-left: solid; */
+  /* transform: perspective(50px) rotateX(15deg); */
+  
+}
+
+.tab:before{
+    content: "";
+    position: absolute;
+    background-color: lightgoldenrodyellow;
+    /* padding-top: 3px; */
+    top: -4%; bottom: -11%; left: -3%; right: -3%;
+    z-index: -1;
+    border-radius: 2px;
+    -webkit-transform: perspective(50px) rotateX(15deg);
+    transform: perspective(50px) rotateX(15deg);
+    border-top: solid;
+    border-right: solid;
+    border-left: solid;
+    border-width: 1px;
 }
