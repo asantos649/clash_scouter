@@ -158,6 +158,7 @@ code {
   z-index: 1;
   padding-top: 3px;
   color: grey;
+  cursor: pointer;
   /* border-top: solid;
   border-right: solid;
   border-left: solid; */
@@ -179,4 +180,47 @@ code {
     border-right: solid;
     border-left: solid;
     border-width: 1px;
+}
+
+.summonerForm{
+  margin: 10px;
+
+}
+
+.formInput:focus{
+  outline: none;
+}
+
+.formInput{
+  width: 35%;
+  border-radius: 5px;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border: none;
+  height: 30px;
+  text-align: center;
+  padding-left: 50px;
+  margin-top: 15px;
+  background-color: rgb(232, 240, 254);
+}
+
+
+.formSubmit{
+  position: relative;
+  left: -55px;
+  border-radius: 5px;
+  height: 25px;
+  border: none;
+  border-left: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+}
+
+
+.formSubmit:hover{
+  background-color: skyblue;
+}
+
+.formSubmit:focus{
+  outline:none
 }
