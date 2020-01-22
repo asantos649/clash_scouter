@@ -1,14 +1,21 @@
 import React from 'react'
 import MainContainer from './MainContainer'
 import SummonerForm from '../components/SummonerForm'
+import Tab from "../components/Tab"
 
 
 class Folder extends React.Component{
     state ={
-        user: 'x1234567890',
-        encryptedUserId: 'eGCN7CoutXsY9agxnM_h0c1pVFn00iNoH6VYZfC8Kv0lxUo', 
-        encryptedAccountId: 'YcJLHnmnCZZtsH3O0E0YnGSoB-ZPhh3LZvVtudJ8509zLlU',
-        showMoreChamps: false
+        currentUser: {1: 'x1234567890'},
+        encryptedUserId: { 1: 'eGCN7CoutXsY9agxnM_h0c1pVFn00iNoH6VYZfC8Kv0lxUo'}, 
+        encryptedAccountId: { 1: 'YcJLHnmnCZZtsH3O0E0YnGSoB-ZPhh3LZvVtudJ8509zLlU'},
+        showMoreChamps: false,
+        currPosition: 1,
+        'user1': 'x1234567890',
+        "user2": 'placeholder',
+        "user3": 'placeholder',
+        "user4": 'placeholder',
+        "user5": 'placeholder',
       }
     
       changeSummoner= (user) => {
@@ -25,31 +32,42 @@ class Folder extends React.Component{
             console.log(data)
             if (data.id){
                     this.setState({
-                        user: user,
-                        encryptedUserId: data.id,
-                        encryptedAccountId: data.accountId,
-                        showMoreChamps: false
+                        user: {...this.state.user, [this.state.currPosition]: user},
+                        encryptedUserId: {...this.state.encryptedUserId, [this.state.currPosition]: data.id},
+                        encryptedAccountId: {...this.state.encryptedAccountId, [this.state.currPosition]: data.accountId},
+                        showMoreChamps: false,
+                        [`user${this.state.currPosition}`]: user
                     })
             } else (
                 alert('try again')
             )
         })
       }
+
       showMoreClick = () => {
         this.setState({
             showMoreChamps: !this.state.showMoreChamps
         })
-    }
+      }
+
+      changeUserClick = (pos) => {
+          console.log('change user')
+        this.setState({
+            currPosition: pos
+        })
+      }
+
       render(){
         return (
           <div className="folder">
-            <div className='tab'>{this.state.user}</div>
+            <Tab position={1} user={this.state.user1} currPosition={this.state.currPosition} changeUserClick={this.changeUserClick}/>
+            <Tab position={2} user={this.state.user2} currPosition={this.state.currPosition} changeUserClick={this.changeUserClick}/>
+            <Tab position={3} user={this.state.user3} currPosition={this.state.currPosition} changeUserClick={this.changeUserClick}/>
+            <Tab position={4} user={this.state.user4} currPosition={this.state.currPosition} changeUserClick={this.changeUserClick}/>
+            <Tab position={5} user={this.state.user5} currPosition={this.state.currPosition} changeUserClick={this.changeUserClick}/>
             <SummonerForm submitHandler={this.changeSummoner}/>
-            <h3>{this.state.user}</h3>
-            <MainContainer showMoreClick={this.showMoreClick} showMoreChamps={this.state.showMoreChamps} encryptedUserId={this.state.encryptedUserId} encryptedAccountId={this.state.encryptedAccountId} user={this.state.user}/>
-            <div className='legalFooter'>Clash Scouter isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
-    or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
-    trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</div>
+            <h3>{this.state[`user${this.state.currPosition}`]}</h3>
+            <MainContainer showMoreClick={this.showMoreClick} showMoreChamps={this.state.showMoreChamps} encryptedUserId={this.state.encryptedUserId[this.state.currPosition]} encryptedAccountId={this.state.encryptedAccountId[this.state.currPosition]} user={this.state.currentUser}/>
           </div>
         );
     

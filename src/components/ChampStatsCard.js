@@ -12,9 +12,9 @@ function ChampStatsCard(props) {
 
     return(
         <div className='statsCard'>
-            <div>{props.champion.name}</div>
+            <div>{props.champion ? props.champion.name : 'New Champion'}</div>
             <div className='statsCardContent'>
-                <img className = 'champImage 'src={`http://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/${props.champion.image.full}`}/>
+                {props.champion ? <img className = 'champImage 'src={`http://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/${props.champion.image.full}`}/> : <div style={{'height':'100px', 'alignSelf': "center"}}></div>}
                 <div className="progressWrapper">
                     <CircularProgressbar 
                         value={props.count} 

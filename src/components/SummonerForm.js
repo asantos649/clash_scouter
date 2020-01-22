@@ -21,7 +21,7 @@ class SummonerForm extends React.Component {
     render(){
         return(
             <form onSubmit={this.submitHandler}>
-                <input type='text' name='summoner' onChange={this.changeHandler}value={this.state.summoner} placeholder='Enter a Summoner Name'/>
+                <input type='text' name='summoner' onChange={this.changeHandler} value={this.state.summoner} placeholder='Enter a Summoner Name'/>
                 <input type='submit'/>
             </form>
         )

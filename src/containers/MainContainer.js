@@ -39,7 +39,8 @@ class MainContainer extends React.Component {
                     showMoreChamps={this.props.showMoreChamps} 
                     title='Top Champion Mastery'
                     toolTipId='mastery'
-                    toolTip="Top champions by mastery.  Ten champions are shown by default. Expand to see more.">
+                    toolTip="Top champions by mastery.  Ten champions are shown by default. Expand to see more."
+                    isFirst={true}>
 
                     <ChampMasteryContainer 
                         showMoreChamps={this.props.showMoreChamps} 

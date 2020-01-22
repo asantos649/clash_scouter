@@ -26,6 +26,7 @@ class ChampMasteryContainer extends React.Component{
 
 
     fetchChampsByMastery = () => {
+        if(this.props.encryptedUserId){
             fetch(`https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${this.props.encryptedUserId}`,{
                 headers: {
                     "Origin": "https://developer.riotgames.com",
@@ -45,6 +46,7 @@ class ChampMasteryContainer extends React.Component{
                     userChamps: mappedData
                 })
             })
+        }
 
     }
 

@@ -25,22 +25,24 @@ class ChampQueueContainer extends React.Component{
     }
 
     fetchData = () => {
-        fetch(`https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${this.props.encryptedAccountId}?queue=${this.props.queue}`,{
-            headers:{
-                "Origin": "https://developer.riotgames.com",
-                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-                "X-Riot-Token": process.env.REACT_APP_RIOT_API,
-                "Accept-Language": "en-US,en;q=0.9",
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
-            }
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            this.setState({
-                matchList: data.matches
+        if(this.props.encryptedAccountId){
+            fetch(`https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${this.props.encryptedAccountId}?queue=${this.props.queue}`,{
+                headers:{
+                    "Origin": "https://developer.riotgames.com",
+                    "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "X-Riot-Token": process.env.REACT_APP_RIOT_API,
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
+                }
             })
-        })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    matchList: data.matches
+                })
+            })
+        }
     }
 
     getSortedList = () =>{
