@@ -10,13 +10,13 @@ class Tab extends React.Component{
         if(this.props.position === this.props.currPosition){
             return(
                 {
-                    marginLeft:`${(this.props.position-1) * 20+1}%`,
+                    marginLeft:`${(this.props.position-1) * 20}%`,
                     fontWeight:'bolder',
                     color: 'black'
                 }
             )
         } else{
-            return {marginLeft:`${(this.props.position-1) * 20+1}%`}
+            return {marginLeft:`${(this.props.position-1) * 20}%`}
         }
     }
 

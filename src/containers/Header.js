@@ -4,7 +4,7 @@ import React from 'react'
 function InfoWrapper (props){
     return(
         <div className='header'>
-            HEADER PLACEHOLDER
+            <span className='title'>CLASH SCOUTER</span>
         </div>
 
     )

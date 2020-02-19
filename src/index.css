@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: whitesmoke;
+  
 }
 
 code {
@@ -57,6 +58,7 @@ code {
   border-style: solid;
   background-color: lightcyan;
   justify-content: space-between;
+  border-radius: 6px;
 }
 
 .champImage {
@@ -135,14 +137,23 @@ code {
 }
 
 .header {
-  height: 100px;
-  background-color: whitesmoke;
-  /* margin-bottom: 40px; */
+  height: 130px;
+  background-color: lightcyan;
+  
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.title {
+  font-family: 'Coda Caption', sans-serif;
+  font-size: 5rem;
 }
 
 .folder {
   text-align: center;
-  background-color: #f1d592;
+  background-color: whitesmoke;
   border-top: solid;
   border-width: 1px;
   padding-bottom: 80px;
@@ -150,27 +161,30 @@ code {
 
 .tab {
   position: absolute;
-  top: 80px;
+  top: 130px;
   left: 0;
   /* background-color: red; */
   height: 16px;
-  width: 17.9%;
+  width: 20%;
   z-index: 1;
   padding-top: 3px;
+  padding-bottom: 5px;
   color: grey;
   cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
   /* border-top: solid;
   border-right: solid;
   border-left: solid; */
   /* transform: perspective(50px) rotateX(15deg); */
-  
+
 }
 
-.tab:before{
+/* .tab:before{
     content: "";
     position: absolute;
-    background-color: #f1d592;
-    /* padding-top: 3px; */
+    background-color: whitesmoke;
+
     top: -4%; bottom: -11%; left: -3%; right: -3%;
     z-index: -1;
     border-radius: 2px;
@@ -180,10 +194,11 @@ code {
     border-right: solid;
     border-left: solid;
     border-width: 1px;
-}
+} */
 
 .summonerForm{
   margin: 10px;
+  margin-top: 30px;
 
 }
 
@@ -192,22 +207,27 @@ code {
 }
 
 .formInput{
-  width: 35%;
+  width: 39%;
   border-radius: 5px;
   box-shadow: none;
   -webkit-appearance: none;
   border: none;
   height: 30px;
   text-align: center;
-  padding-left: 50px;
+  /* padding-left: 50px; */
   margin-top: 15px;
+  border-style: solid;
+  border-width: 7px;
+  border-right-width: 10px;
+  border-left-width: 10px;
+  border-color: lightgrey;
   background-color: rgb(232, 240, 254);
 }
 
 
 .formSubmit{
   position: relative;
-  left: -55px;
+  left: -65px;
   border-radius: 5px;
   height: 25px;
   border: none;
