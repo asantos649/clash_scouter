@@ -12,10 +12,10 @@ class Folder extends React.Component{
         showMoreChamps: false,
         currPosition: 1,
         'user1': 'x1234567890',
-        "user2": 'placeholder',
-        "user3": 'placeholder',
-        "user4": 'placeholder',
-        "user5": 'placeholder',
+        "user2": 'Scout New',
+        "user3": 'Scout New',
+        "user4": 'Scout New',
+        "user5": 'Scout New',
       }
     
       changeSummoner= (user) => {
@@ -68,6 +68,7 @@ class Folder extends React.Component{
             <SummonerForm submitHandler={this.changeSummoner}/>
             <h3>{this.state[`user${this.state.currPosition}`]}</h3>
             <MainContainer showMoreClick={this.showMoreClick} showMoreChamps={this.state.showMoreChamps} encryptedUserId={this.state.encryptedUserId[this.state.currPosition]} encryptedAccountId={this.state.encryptedAccountId[this.state.currPosition]} user={this.state.currentUser}/>
+            <button className='showButton' onClick={this.showMoreClick}>{this.state.showMoreChamps ? 'Show Less ▲' : 'Show More ▼'}</button>
           </div>
         );
     

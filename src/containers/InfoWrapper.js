@@ -11,7 +11,7 @@ function InfoWrapper (props){
                 </div>
                 {props.children}
             </div>
-            <button className='showButton' onClick={props.showMoreClick}>{props.showMoreChamps ? '▲' : '▼'}</button>
+            
         </div>
 
     )

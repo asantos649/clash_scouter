@@ -15,6 +15,12 @@ class Tab extends React.Component{
                     color: 'black'
                 }
             )
+        } else if(this.props.position === this.props.currPosition-1) {
+            return (
+                {marginLeft:`${(this.props.position-1) * 20}%`,
+                 borderRightColor: 'black'
+                }
+            )
         } else{
             return {marginLeft:`${(this.props.position-1) * 20}%`}
         }

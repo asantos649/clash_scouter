@@ -102,9 +102,10 @@ code {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-  background-color: lightcyan;
+  margin-top: 25px;
+  background-color: whitesmoke;
   border-style: solid;
-  border-color: lightcyan;
+  border-color: whitesmoke;
 }
 
 .showButton:focus { 
@@ -156,7 +157,7 @@ code {
   background-color: whitesmoke;
   border-top: solid;
   border-width: 1px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
 }
 
 .tab {
@@ -173,6 +174,7 @@ code {
   cursor: pointer;
   border-style: solid;
   border-width: 1px;
+  border-left-width: 0px;
   /* border-top: solid;
   border-right: solid;
   border-left: solid; */
