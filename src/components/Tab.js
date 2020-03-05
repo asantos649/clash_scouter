@@ -2,9 +2,6 @@ import React from 'react'
 
 class Tab extends React.Component{
 
-    // state={
-    //     user: 'placeholder'
-    // }
 
     determineStyle = () => {
         if(this.props.position === this.props.currPosition){
