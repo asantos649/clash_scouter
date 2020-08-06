@@ -6,12 +6,12 @@ import Tab from "../components/Tab"
 
 class Folder extends React.Component{
     state ={
-        currentUser: {1: 'x1234567890'},
-        encryptedUserId: { 1: 'eGCN7CoutXsY9agxnM_h0c1pVFn00iNoH6VYZfC8Kv0lxUo'}, 
-        encryptedAccountId: { 1: 'YcJLHnmnCZZtsH3O0E0YnGSoB-ZPhh3LZvVtudJ8509zLlU'},
+        currentUser: {1: ''},
+        encryptedUserId: { 1: ''}, 
+        encryptedAccountId: { 1: ''},
         showMoreChamps: false,
         currPosition: 1,
-        'user1': 'x1234567890',
+        'user1': 'Scout New',
         "user2": 'Scout New',
         "user3": 'Scout New',
         "user4": 'Scout New',
