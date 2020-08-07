@@ -246,3 +246,21 @@ code {
 .formSubmit:focus{
   outline:none
 }
+
+.mobileModal{
+  display: none;
+}
+
+@media screen and (max-width: 749px){
+  .mobileModal{
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 99;
+    text-align:center;
+  }
+}

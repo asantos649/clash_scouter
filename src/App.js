@@ -9,7 +9,7 @@ class App extends React.Component {
   render(){
     return(
       <div className='App'>
-
+        <div className='mobileModal'>Sorry the mobile version is under construction</div>
         <Header />
         <Folder />
        <div className='legalFooter'>Clash Scouter isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
